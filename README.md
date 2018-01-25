@@ -67,6 +67,7 @@ prisma deploy
 ## .env file
 Your .env now file now also needs the following:
 ``` 
+PRISMA_ENDPOINT="YOUR_COPIED_ENDPOINT" # e.g. https://us1-prisma.sh...
 AUTH0_DOMAIN="YOUR_AUTHO_DOMAN" # e.g. yourdomain.auth0.com
 AUTH0_AUDIENCE="YOUR" # e.g. https://yourdomain.auth0.com/api/v2/
 AUTH0_ISSUER="https://wheelk.auth0.com/" # e.g. https://yourdomain.auth0.com/
