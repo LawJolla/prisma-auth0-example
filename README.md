@@ -28,6 +28,7 @@ You need to have the following things installed:
 * Git
 * Node 8+
 * Prisma CLI: `npm i -g prisma`
+* GraphQL CLI `npm i -g graphql-cli`
 * Auth0 account
 
 ## Getting started
