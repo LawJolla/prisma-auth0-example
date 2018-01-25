@@ -1,4 +1,7 @@
 # Prisma React Auth0 Example
+Video Demo
+
+[![](http://img.youtube.com/vi/y1zBjWhfPzQ/0.jpg)](http://www.youtube.com/watch?v=y1zBjWhfPzQ "Auth0")
 
 🚀 Basic starter code for a fullstack app based on Prisma, Auth0, React, GraphQL & Apollo Client.
 
