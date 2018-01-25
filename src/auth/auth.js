@@ -20,7 +20,7 @@ class Auth {
       sso: false,
       redirectUrl: AUTH_CONFIG.callbackUrl,
       responseType: 'token id_token',
-      audience: `https://${AUTH_CONFIG.domain}/api/v2/`,
+      audience: `${AUTH_CONFIG.api_audience}`,
       params: {
         scope: `openid profile email user_metadata app_metadata picture`
       }
