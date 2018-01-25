@@ -16,7 +16,7 @@ If you see any potential security issues, please let me know!
   * [React](https://facebook.github.io/react/): Frontend framework for building user interfaces
   * [Apollo Client](https://github.com/apollographql/apollo-client): Fully-featured, production ready caching GraphQL client
 * **Backend**
-  * [Auth0](http://www.auth0.com): Authentication as a service
+  * [Auth0](http://www.auth0.com): Authentication as a service. (And this demo uses RS256 hotness!)
   * [Prisma](https://www.prismagraphql.com): Turns your database into a GraphQL API
   * [graphql-yoga](https://github.com/graphcool/graphql-yoga/): Fully-featured GraphQL server with focus on easy setup, performance & great developer experience
   * [prisma-binding](https://github.com/graphcool/prisma-binding): [GraphQL binding](https://blog.graph.cool/reusing-composing-graphql-apis-with-graphql-bindings-80a4aa37cff5) for Prisma services
