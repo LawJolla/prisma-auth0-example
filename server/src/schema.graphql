@@ -1,0 +1,15 @@
+# import Post from "./generated/prisma.graphql"
+
+type Query {
+  feed: [Post!]!
+  drafts: [Post!]!
+  post(id: ID!): Post
+  me: User
+}
+
+type Mutation {
+  authenticate(idToken: String!): User
+  createDraft(title: String!, text: String): Post
+  deletePost(id: ID!): Post
+  publish(id: ID!): Post
+}
