@@ -94,7 +94,7 @@ Edit these values with your Auth0 Config
 export const AUTH_CONFIG = {
   domain: 'YOUR_DOMAIN', // e.g. your-domain.auth0.com
   clientId: 'YOUR_CLIENT_ID', // e.g. string of characters from Auth0 for your API
-  callbackUrl: "http://localhost:8000" // make sure Auth0 has http://localhost:8000 as a callback url
+  callbackUrl: "http://localhost:8000/callback" // make sure Auth0 has http://localhost:8000 as a callback url
 }
 ```
 

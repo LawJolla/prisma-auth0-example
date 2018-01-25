@@ -20,6 +20,7 @@ import FeedPage from './components/FeedPage'
 import DraftsPage from './components/DraftsPage'
 import CreatePage from './components/CreatePage'
 import DetailPage from './components/DetailPage'
+import Callback from './components/Callback'
 
 import 'tachyons'
 import './index.css'
@@ -43,6 +44,16 @@ const client = new ApolloClient({
 })
 
 const auth = new Auth((result) => console.log('auth result', result), client)
+const handleAuthentication = (nextState, replace) => {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication()
+  }
+}
+const handleAuthentication = (nextState, replace) => {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication()
+  }
+}
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
@@ -92,6 +103,10 @@ ReactDOM.render(
             <Route path='/drafts' component={DraftsPage} />
             <Route path='/create' component={CreatePage} />
             <Route path='/post/:id' component={DetailPage} />
+            <Route path='/callback' render={(props) => {
+              handleAuthentication(props)
+              return <Callback {...props} />
+            }}/>
           </Switch>
         </div>
       </React.Fragment>
