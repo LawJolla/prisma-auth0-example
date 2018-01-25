@@ -46,23 +46,27 @@ yarn install
 cd server
 yarn install
 
-#5 Deploy Prisma cluster
-prisma deploy
-
-#6 Make .env file
+#5 Make .env file
 touch .env
 
-#7 open .env in your editor of voice
+#6 open .env in your editor of choice
 code .env
+```
+Make your prisma secret
+PRISMA_SECRET="myapp123"
+
+```ssh
+
+#7 Deploy Prisma cluster
+prisma deploy
+
+#8 Copy HTTP endpoint from Prisma, e.g. https://us1.prisma.sh... or localhost...
+
 ```
 
 ## .env file
-Your .env file needs the following:
+Your .env now file now also needs the following:
 ``` 
-PRISMA_STAGE="dev"
-PRISMA_ENDPOINT="YOUR_ENDPOINT"
-PRISMA_CLUSTER="YOUR_CLUSTER"
-PRISMA_SECRET="YOUR_SECRET"
 AUTH0_DOMAIN="YOUR_AUTHO_DOMAN" # e.g. yourdomain.auth0.com
 AUTH0_AUDIENCE="YOUR" # e.g. https://yourdomain.auth0.com/api/v2/
 AUTH0_ISSUER="https://wheelk.auth0.com/" # e.g. https://yourdomain.auth0.com/

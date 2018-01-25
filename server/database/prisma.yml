@@ -1,14 +1,8 @@
-# the name for the service (will be part of the service's HTTP endpoint)
-service: auth0-prisma-demo
+service: test
+stage: dev
 
-# the cluster and stage the service is deployed to
-stage: ${env:PRISMA_STAGE}
-
-# to disable authentication:
-# disableAuth: true
-secret: ${env:PRISMA_SECRET}
-
-# the file path pointing to your data model
 datamodel: datamodel.graphql
 
-cluster: ${env:PRISMA_CLUSTER}
+# to enable auth, provide
+secret: ${env:PRISMA_SECRET}
+#disableAuth: true
