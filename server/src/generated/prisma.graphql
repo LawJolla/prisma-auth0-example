@@ -17,6 +17,7 @@ type Post implements Node {
 type User implements Node {
   id: ID!
   email: String!
+  role: Role!
   name: String
   avatar: String
   auth0id: String!
@@ -261,6 +262,11 @@ type Query {
   node(id: ID!): Node
 }
 
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
 type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
@@ -274,6 +280,7 @@ type UserConnection {
 
 input UserCreateInput {
   email: String!
+  role: Role
   name: String
   avatar: String
   auth0id: String!
@@ -288,6 +295,7 @@ input UserCreateOneWithoutPostsInput {
 
 input UserCreateWithoutPostsInput {
   email: String!
+  role: Role
   name: String
   avatar: String
   auth0id: String!
@@ -304,6 +312,8 @@ enum UserOrderByInput {
   id_DESC
   email_ASC
   email_DESC
+  role_ASC
+  role_DESC
   name_ASC
   name_DESC
   avatar_ASC
@@ -321,6 +331,7 @@ enum UserOrderByInput {
 type UserPreviousValues {
   id: ID!
   email: String!
+  role: Role!
   name: String
   avatar: String
   auth0id: String!
@@ -346,6 +357,7 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateInput {
   email: String
+  role: Role
   name: String
   avatar: String
   auth0id: String
@@ -364,6 +376,7 @@ input UserUpdateOneWithoutPostsInput {
 
 input UserUpdateWithoutPostsDataInput {
   email: String
+  role: Role
   name: String
   avatar: String
   auth0id: String
@@ -412,6 +425,10 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
   name: String
   name_not: String
   name_in: [String!]

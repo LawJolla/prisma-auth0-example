@@ -7,9 +7,9 @@ Video Demo
 
 ## Goals
 
-My idea of a possible authentication flow for Prisma's Instagram clone. I am not an expert and put together this repo as a learning exercise. 
+My idea of a possible authentication and authorization flow for Prisma's Instagram (blog?) clone. I am not an expert and put together this repo as a learning exercise. 
 
-This repo follows the [Prisma Permissions](https://www.prismagraphql.com/docs/tutorials/graphql-server-development/permissions-thohp1zaih) tutorial without the ADMIN / CUSTOMER roles.
+This repo follows the [Prisma Permissions](https://www.prismagraphql.com/docs/tutorials/graphql-server-development/permissions-thohp1zaih).
 
 If you see any potential security issues, please let me know!
  
@@ -31,8 +31,8 @@ You need to have the following things installed:
 * Git
 * Node 8+
 * Prisma CLI: `npm i -g prisma`
-* GraphQL CLI `npm i -g graphql-cli`
 * Auth0 account
+* Basic Auth0 Console Knowledge -- this demo is short on how to configure the Auth0 console, but even a novice Auth0 user should get it.  I did!  This is my first project using Auth0.
 
 ## Getting started
 
@@ -53,7 +53,7 @@ yarn install
 #5 Make .env file
 touch .env
 
-#6 open .env in your editor of choice
+#6 open .env in your editor of choice, e.g.
 code .env
 ```
 Make your prisma secret
@@ -73,8 +73,8 @@ Your .env now file now also needs the following:
 ``` 
 PRISMA_ENDPOINT="YOUR_COPIED_ENDPOINT" # e.g. https://us1-prisma.sh...
 AUTH0_DOMAIN="YOUR_AUTHO_DOMAN" # e.g. yourdomain.auth0.com
-AUTH0_AUDIENCE="YOUR" # e.g. https://yourdomain.auth0.com/api/v2/
-AUTH0_ISSUER="https://wheelk.auth0.com/" # e.g. https://yourdomain.auth0.com/
+AUTH0_AUDIENCE="YOUR_API/AUDIENCE" # e.g. https://yourdomain.auth0.com/api/v2/
+AUTH0_ISSUER="https://YOUR_AUTH0_DOMAIN" # e.g. https://yourdomain.auth0.com/
 ```
 Your Auth0 console will provided the needed information above.
 
@@ -88,10 +88,14 @@ yarn dev
 cd ..
 cd src/auth
 
-#10 edit auth0-variables.js in your favorite editor
+#10 Create an auth0-variables file
+touch auth0-variables
+
+#11 Edit auth0-variables.js in your favorite editor, e.g.
+code auth0-variables
 ```
 ## auth0-variables.js
-Edit these values with your Auth0 Config
+Copy and paste the AUTH_CONFIG below, and fill in the variables, and save
 
 ```
 export const AUTH_CONFIG = {
@@ -111,4 +115,10 @@ yarn start
 #13 See what errors you get 🤣
 ```
 
-Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions, join the [`#graphql-boilerplates`](https://prisma.slack.com/messages/graphql-boilerplates) channel on our [Slack](https://prisma.slack.com/).
+#Directive Permissions
+
+This demo uses the new-ish GraphQL directive permission pattern.  Here's a great video from Ryan Chenkie, a developer at Auth0, describing how it works.
+
+[![](http://img.youtube.com/vi/4_Bcw7BULC8/0.jpg)](https://www.youtube.com/watch?v=4_Bcw7BULC8 "Auth0")
+
+Tl;dr:  Simply decorate your fields and q

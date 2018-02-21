@@ -6,3 +6,4 @@ datamodel: datamodel.graphql
 # to enable auth, provide
 secret: ${env:PRISMA_SECRET}
 #disableAuth: true
+cluster: public-cactusogre-621/prisma-us1

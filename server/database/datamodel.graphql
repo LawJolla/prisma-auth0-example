@@ -1,3 +1,8 @@
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
 type Post {
   id: ID! @unique
   isPublished: Boolean!
@@ -10,6 +15,7 @@ type Post {
 type User {
   id: ID! @unique
   email: String! @unique
+  role: Role! @default(value: CUSTOMER)
   name: String
   avatar: String
   auth0id: String! @unique

@@ -4,13 +4,16 @@
     "start": "nodemon -e js,graphql -x node -r dotenv/config src/index.js",
     "debug": "nodemon -e js,graphql -x node --inspect -r dotenv/config src/index.js",
     "playground": "graphql playground --dotenv dotenv/config",
-    "dev": "npm-run-all --parallel start playground"
+    "dev": "npm-run-all --parallel debug playground"
   },
   "dependencies": {
     "express-jwt": "^5.3.0",
+    "graphql-import": "^0.4.3",
+    "graphql-tools": "2.18.0",
     "graphql-yoga": "1.2.0",
     "jsonwebtoken": "^8.1.1",
     "jwks-rsa": "^1.2.1",
+    "lodash.get": "^4.4.2",
     "nodemon": "^1.14.11",
     "prisma-binding": "1.4.0"
   },
