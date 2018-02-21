@@ -16,13 +16,12 @@ const directiveResolvers = {
     isLoggedIn(ctx)
     return next()
   },
-  hasRoles: (next, source, args, ctx) => {
-    const user = isLoggedIn(ctx)
-    if (args.roles.includes(user.role)) {
+  hasRole: (next, source, { roles }, ctx) => {
+    const { role } = isLoggedIn(ctx)
+    if (roles.includes(role)) {
       return next()
     }
     throw new Error(`Unauthorized, incorrect role`)
-
   },
   isOwner: async (next, source, { type }, ctx) => {
       const { id: typeId } = ctx.request.body.variables
@@ -33,7 +32,7 @@ const directiveResolvers = {
       }
       throw new Error(`Unauthorized, must be owner`)
   },
-  isOwnerOrHasRoles: async (next, source, { roles, type }, ctx, ...p) => {
+  isOwnerOrHasRole: async (next, source, { roles, type }, ctx, ...p) => {
     const { id: userId, role } = isLoggedIn(ctx)
     if (roles.includes(role)) {
       return next()
