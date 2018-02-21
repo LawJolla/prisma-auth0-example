@@ -121,4 +121,4 @@ This demo uses the new-ish GraphQL directive permission pattern.  Here's a great
 
 [![](http://img.youtube.com/vi/4_Bcw7BULC8/0.jpg)](https://www.youtube.com/watch?v=4_Bcw7BULC8 "Auth0")
 
-Tl;dr:  Simply decorate your fields and q
+Tl;dr:  Simply decorate your fields / queries / mutations with directives, and let the directive resolvers handle the rest!
