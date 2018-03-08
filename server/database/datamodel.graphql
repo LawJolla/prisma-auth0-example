@@ -14,8 +14,8 @@ type Post {
 
 type User {
   id: ID! @unique
-  email: String! @unique
-  role: Role! @default(value: CUSTOMER)
+  email: String @unique
+  role: Role @default(value: CUSTOMER)
   name: String
   avatar: String
   auth0id: String! @unique

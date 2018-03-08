@@ -1,4 +1,4 @@
-# import Post from "./generated/prisma.graphql"
+# import Query.users, Post from "./generated/prisma.graphql"
 
 directive @isAuthenticated on QUERY | FIELD | MUTATION
 directive @hasRole(roles: [String]) on QUERY | FIELD | MUTATION
@@ -21,8 +21,8 @@ type Mutation {
 
 type User {
   id: ID!
-  email: String!
-  role: Role!
+  email: String @isOwner(type: "User")
+  role: Role
   name: String
   avatar: String
   identity: String

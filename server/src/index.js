@@ -1,5 +1,5 @@
 const { GraphQLServer } = require("graphql-yoga")
-const { Prisma } = require("prisma-binding")
+const { Prisma, extractFragmentReplacements, forwardTo } = require("prisma-binding")
 const { makeExecutableSchema } = require("graphql-tools")
 const { importSchema } = require("graphql-import")
 const { checkJwt } = require("./middleware/jwt")
@@ -37,7 +37,16 @@ const resolvers = {
       return ctx.db.query.post({ where: { id } }, info)
     },
     me(parent, args, ctx, info) {
-      return ctx.db.query.user({ where: { id: ctxUser(ctx).id } }, info)
+      return ctx.db.query.user({ where: { id: ctxUser(ctx).id } })
+    },
+    users: forwardTo('db')
+  },
+  User: {
+    email: {
+      fragment: `fragment UserId on User { id }`,
+      resolve: (parent, args, ctx, info) => {
+        return parent.email
+      }
     }
   },
   Mutation: {
@@ -67,7 +76,8 @@ const resolvers = {
     async deletePost(parent, { id }, ctx, info) {
       ctx.db.mutation.deletePost({ where: { id } }, info)
     },
-    async publish(parent, { id }, ctx, info) {
+    async publish(parent, { id, ...p }, ctx, info) {
+      console.log('PUBLISH')
       return ctx.db.mutation.updatePost(
         {
           where: { id },
@@ -80,6 +90,7 @@ const resolvers = {
 }
 
 const db = new Prisma({
+  fragmentReplacements: extractFragmentReplacements(resolvers),
   typeDefs: "src/generated/prisma.graphql",
   endpoint: process.env.PRISMA_ENDPOINT,
   secret: process.env.PRISMA_SECRET,
