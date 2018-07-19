@@ -1,0 +1,35 @@
+{
+  "name": "react-apollo-instagram-example",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "prettier-eslint-cli": "4.7.0",
+    "react-scripts": "1.1.0"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "1.2.5",
+    "apollo-client": "2.3.5",
+    "apollo-link": "^1.2.2",
+    "apollo-link-context": "^1.0.8",
+    "apollo-link-error": "^1.1.0",
+    "apollo-link-http": "1.5.4",
+    "auth0-lock": "^11.6.1",
+    "base-64": "^0.1.0",
+    "graphql": "0.13.2",
+    "graphql-tag": "2.9.2",
+    "next": "^6.1.1",
+    "next-with-apollo": "^3.1.2",
+    "node-fetch": "^2.1.2",
+    "prop-types": "^15.6.2",
+    "react": "16.4.1",
+    "react-apollo": "2.1.9",
+    "react-dom": "16.4.1",
+    "react-modal": "3.5.1",
+    "react-router-dom": "4.3.1",
+    "styled-components": "^3.3.3",
+    "tachyons": "4.10.0"
+  },
+  "scripts": {
+    "dev": "next -p 8000"
+  }
+}

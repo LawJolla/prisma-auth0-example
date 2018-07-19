@@ -1,6 +1,8 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:300, 400';
+import React from "react"
+import styled, { injectGlobal, ThemeProvider } from "styled-components"
 
-body {
+injectGlobal`
+  body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
@@ -64,3 +66,14 @@ html {
   width: 20px;
   height: 20px;
 }
+
+`
+
+const Theme = ({ children }) => (
+  // insert theme here
+  <ThemeProvider theme={{}}>
+    {children}
+  </ThemeProvider>
+)
+
+export default Theme

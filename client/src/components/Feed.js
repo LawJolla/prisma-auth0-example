@@ -1,16 +1,17 @@
 import React from 'react'
-import Post from '../components/Post'
+import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-class FeedPage extends React.Component {
+class Feed extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (this.props.location.key !== nextProps.location.key) {
-      this.props.feedQuery.refetch()
-    }
+    // if (this.props.location.key !== nextProps.location.key) {
+    //   this.props.feedQuery.refetch()
+    // }
   }
 
   render() {
+    console.log(this.props)
     if (this.props.feedQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
@@ -23,14 +24,14 @@ class FeedPage extends React.Component {
       <React.Fragment>
         <h1>Feed</h1>
         {this.props.feedQuery.feed &&
-          this.props.feedQuery.feed.map(post => (
-            <Post
-              key={post.id}
-              post={post}
-              refresh={() => this.props.feedQuery.refetch()}
-              isDraft={!post.isPublished}
-            />
-          ))}
+        this.props.feedQuery.feed.map(post => (
+          <Post
+            key={post.id}
+            post={post}
+            refresh={() => this.props.feedQuery.refetch()}
+            isDraft={!post.isPublished}
+          />
+        ))}
         {this.props.children}
       </React.Fragment>
     )
@@ -53,4 +54,4 @@ export default graphql(FEED_QUERY, {
   options: {
     fetchPolicy: 'network-only',
   },
-})(FeedPage)
+})(Feed)

@@ -1,13 +1,13 @@
 import React from 'react'
-import Post from '../components/Post'
+import Post from '../src/components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-class DraftsPage extends React.Component {
+class Drafts extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (this.props.location.key !== nextProps.location.key) {
-      this.props.draftsQuery.refetch()
-    }
+    // if (this.props.location.key !== nextProps.location.key) {
+    //   this.props.draftsQuery.refetch()
+    // }
   }
 
   render() {
@@ -55,4 +55,4 @@ export default graphql(DRAFTS_QUERY, {
   options: {
     fetchPolicy: 'network-only',
   },
-})(DraftsPage)
+})(Drafts)

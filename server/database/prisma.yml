@@ -1,9 +1,10 @@
-service: test
-stage: dev
+#service: test
+#stage: dev
 
 datamodel: datamodel.graphql
 
 # to enable auth, provide
 secret: ${env:PRISMA_SECRET}
 #disableAuth: true
-cluster: public-cactusogre-621/prisma-us1
+#cluster: public-cactusogre-621/prisma-us1
+endpoint: https://us1.prisma.sh/public-cactusogre-621/test/dev

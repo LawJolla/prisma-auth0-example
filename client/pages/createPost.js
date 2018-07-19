@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-class CreatePage extends React.Component {
+class CreatePost extends React.Component {
   state = {
     title: '',
     text: '',
@@ -68,6 +68,6 @@ const CREATE_DRAFT_MUTATION = gql`
 
 const CreatePageWithMutation = graphql(CREATE_DRAFT_MUTATION, {
   name: 'createDraftMutation', // name of the injected prop: this.props.createDraftMutation...
-})(CreatePage)
+})(CreatePost)
 
 export default withRouter(CreatePageWithMutation)

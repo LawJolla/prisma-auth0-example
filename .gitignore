@@ -18,4 +18,4 @@ npm-debug.log
 .idea/*
 *.swp
 .vscode
-/src/auth/auth0-variables.js
+/client/src/auth/auth0-variables.js

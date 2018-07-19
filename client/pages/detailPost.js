@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 
-class DetailPage extends React.Component {
+class DetailPost extends React.Component {
   render() {
     if (this.props.postQuery.loading) {
       return (
@@ -114,4 +114,4 @@ export default compose(
     name: 'deletePost',
   }),
   withRouter,
-)(DetailPage)
+)(DetailPost)
